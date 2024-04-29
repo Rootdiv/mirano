@@ -57,6 +57,31 @@
           </figure>
         </div>
       </section>
+      <section class="filters">
+        <div class="container">
+          <fieldset class="filters__buttons">
+            <input type="radio" class="filters__radio" name="radio" id="flowers" checked />
+            <label for="flowers" class="filters__label filters__label_flowers">Цветы</label>
+
+            <input type="radio" class="filters__radio" name="radio" id="toys" />
+            <label for="toys" class="filters__label filters__label_toys">Игрушки</label>
+
+            <input type="radio" class="filters__radio" name="radio" id="postcards" />
+            <label for="postcards" class="filters__label filters__label_postcards">Открытки</label>
+          </fieldset>
+        </div>
+      </section>
+      <section class="subscription">
+        <h2 class="subscription__title">Подпишись на рассылку</h2>
+        <form action="#" class="subscription__form">
+          <input type="email" class="subscription__input" name="email" placeholder="E-mail" />
+          <button class="subscription__button">
+            <svg width="20" height="20" class="subscription__arrow">
+              <use href="/img/sprite.svg#arrow" />
+            </svg>
+          </button>
+        </form>
+      </section>
     </main>
     <footer></footer>
   </body>

@@ -1,0 +1,52 @@
+@use '../variables' as *;
+
+.filters {
+  margin-bottom: 60px;
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: none;
+    padding: 0;
+  }
+
+  &__radio {
+    position: absolute;
+    appearance: none;
+  }
+
+  &__label {
+    position: relative;
+    display: inline-block;
+    font-size: 18px;
+    color: $white;
+    border-radius: 300px;
+    padding: 24px 16px 24px 60px;
+    cursor: pointer;
+    color: $dark;
+    background-color: $white;
+    background-repeat: no-repeat;
+    background-position: left 16px center;
+
+    &_flowers {
+      width: 133px;
+      background-image: url('/img/flowers.png');
+    }
+
+    &_toys {
+      width: 154px;
+      background-image: url('/img/toys.png');
+    }
+
+    &_postcards {
+      width: 164px;
+      background-image: url('/img/postcards.png');
+    }
+  }
+
+  &__radio:checked + &__label {
+    background-color: $light-orange;
+    color: $white;
+  }
+}
