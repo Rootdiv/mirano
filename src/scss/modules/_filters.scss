@@ -1,14 +1,23 @@
 @use '../variables' as *;
 
 .filters {
-  margin-bottom: 60px;
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
 
-  &__buttons {
+  &__group {
     display: flex;
     align-items: center;
     gap: 12px;
     border: none;
     padding: 0;
+
+    &_choices {
+      gap: 64px;
+    }
   }
 
   &__radio {
@@ -18,14 +27,12 @@
 
   &__label {
     position: relative;
-    display: inline-block;
-    font-size: 18px;
-    color: $white;
     border-radius: 300px;
-    padding: 24px 16px 24px 60px;
+    padding: 16px;
+    padding-left: 60px;
     cursor: pointer;
-    color: $dark;
     background-color: $white;
+    background-size: 40px;
     background-repeat: no-repeat;
     background-position: left 16px center;
 
@@ -36,17 +43,57 @@
 
     &_toys {
       width: 154px;
-      background-image: url('/img/toys.png');
+      background-image: url('/img/bear-toy.png');
     }
 
     &_postcards {
       width: 164px;
-      background-image: url('/img/postcards.png');
+      background-image: url('/img/postcard.png');
     }
+
+    &:hover {
+      background-color: $orange;
+    }
+  }
+
+  &__radio:focus-visible + &__label {
+    outline: 2px solid $orange;
+    outline-offset: 3px;
   }
 
   &__radio:checked + &__label {
     background-color: $light-orange;
     color: $white;
+  }
+
+  &__choices {
+  }
+
+  &__select {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background-image: url('/img/triangle.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+  }
+
+  &__input-price {
+  }
+
+  &__type-list {
+  }
+
+  &__type-item {
+  }
+
+  &__type-button {
   }
 }

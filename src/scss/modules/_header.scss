@@ -32,6 +32,10 @@
     &::-webkit-search-cancel-button {
       display: none;
     }
+
+    &:focus-visible {
+      outline: 2px solid $light-orange;
+    }
   }
 
   &__search-button {
@@ -46,6 +50,14 @@
     justify-content: center;
     border-radius: 32px;
     background-color: $light-orange;
+
+    &:hover {
+      background-color: $orange;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $orange;
+    }
   }
 
   &__logo {
