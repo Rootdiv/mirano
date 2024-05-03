@@ -14,8 +14,6 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    border: none;
-    padding: 0;
     flex-wrap: wrap;
 
     &_choices {
@@ -100,20 +98,54 @@
   }
 
   &__choices-box {
+    border-radius: 12px;
+    padding: 24px;
+    background-color: $white;
+
+    @include mobile {
+      font-size: 14px;
+      padding: 16px;
+    }
   }
 
   &__price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 228px;
+    height: 40px;
+
+    @include mobile {
+      width: 188px;
+    }
   }
 
   &__input-price {
+    border: none;
+    border-radius: 32px;
+    padding: 8px 16px;
+    width: 100%;
+    height: 100%;
+    background-color: $bg;
+
+    &:focus-visible {
+      outline: 2px solid $light-orange;
+    }
   }
 
   &__type-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
   &__type-item {
   }
 
   &__type-button {
+    &:hover {
+      color: $orange;
+    }
   }
 }
