@@ -36,6 +36,7 @@
   &__title {
     font-weight: 400;
     font-size: 18px;
+    flex-basis: 100%;
   }
 
   &__footer {
@@ -43,7 +44,6 @@
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    margin-top: auto;
 
     @include mobile {
       align-items: stretch;
