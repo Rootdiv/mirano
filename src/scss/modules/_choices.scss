@@ -3,6 +3,10 @@
   }
 
   &__box {
-    display: block;
+    display: none;
+
+    &_open {
+      display: block;
+    }
   }
 }
