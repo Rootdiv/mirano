@@ -3,6 +3,10 @@
 @use 'modules/header';
 @use 'modules/hero';
 @use 'modules/filters';
+@use 'modules/choices';
+@use 'modules/goods';
+@use 'modules/card';
 @use 'modules/subscription';
+@use 'modules/footer';
 
 @import 'normalize.css';
