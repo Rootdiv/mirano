@@ -2,13 +2,44 @@
 @use '../media' as *;
 
 .cart {
+  align-self: flex-start;
   padding-top: 100px;
+  display: none;
+
+  &_open {
+    display: flex;
+  }
+
+  @media (max-width: 1360px) {
+    padding: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    overflow-y: auto;
+    height: 100vh;
+  }
+
+  @include mobile {
+    height: 100%;
+    right: 14px;
+  }
 
   &__container {
     border-radius: 32px;
     padding: 24px 16px;
     max-width: 310px;
     background-color: $white;
+    min-height: 778px;
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+
+    @include mobile {
+      min-height: max-content;
+      max-width: 292px;
+    }
   }
 
   &__header {
@@ -51,6 +82,8 @@
   }
 
   &__list {
+    margin-bottom: 24px;
+    flex-grow: 1;
   }
 
   &__item {
@@ -64,7 +97,7 @@
     gap: 8px 12px;
 
     &:last-child {
-      border-bottom: none;
+      border-bottom-color: transparent;
     }
   }
 
@@ -72,7 +105,7 @@
     grid-area: image;
     border-radius: 12px;
     object-fit: cover;
-    width: 100%;
+    width: 54px;
     height: 54px;
   }
 
@@ -112,9 +145,10 @@
       text-align: center;
       border-radius: 6px;
       appearance: textfield;
-      -moz-appearance: textfield;
+      background-color: transparent;
 
-      &::-webkit-inner-spin-button {
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
         display: none;
       }
 
@@ -142,15 +176,12 @@
 
   &__order-btn {
     border-radius: 32px;
-    width: 123px;
-    height: 40px;
+    padding: 9px 16px 8px 16px;
     background-color: $light-orange;
     color: $white;
 
     @include mobile {
       font-size: 14px;
-      width: 103px;
-      height: 35px;
     }
   }
 }

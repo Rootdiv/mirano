@@ -50,9 +50,9 @@ choices.forEach(choice => {
 
   btn.addEventListener('click', () => {
     if (!btn.classList.contains('filters__select_active')) {
-      choices.forEach(choice => {
-        choice.querySelector('.choices__btn').classList.remove('filters__select_active');
-        choice.querySelector('.choices__box').classList.remove('choices__box_open');
+      choices.forEach(otherChoice => {
+        otherChoice.querySelector('.choices__btn').classList.remove('filters__select_active');
+        otherChoice.querySelector('.choices__box').classList.remove('choices__box_open');
       });
     }
     btn.classList.toggle('filters__select_active');
@@ -64,4 +64,16 @@ choices.forEach(choice => {
       adjustElementPosition(box);
     });
   });
+});
+
+const headerCartButton = document.querySelector('.header__cart-button');
+const cartClose = document.querySelector('.cart__close');
+const cart = document.querySelector('.cart');
+
+headerCartButton.addEventListener('click', () => {
+  cart.classList.toggle('cart_open');
+});
+
+cartClose.addEventListener('click', () => {
+  cart.classList.remove('cart_open');
 });
