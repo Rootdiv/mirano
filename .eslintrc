@@ -133,7 +133,6 @@
         "ignorePattern": "goog.(module|require)"
       }
     ],
-    "new-cap": "error",
     "no-array-constructor": "error",
     "no-mixed-spaces-and-tabs": "error",
     "no-multiple-empty-lines": [
@@ -154,7 +153,7 @@
         "const": "never"
       }
     ],
-    "operator-linebreak": ["error", "after"],
+    "operator-linebreak": ["error", "before"],
     "padded-blocks": ["error", "never"],
     "quote-props": ["error", "as-needed"],
     "quotes": [

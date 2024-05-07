@@ -1,12 +1,34 @@
 import { defineConfig } from 'vite';
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  esbuild: {
+    jsxFactory: 'jsx',
+    jsxInject: "import { jsx } from '@/jsx.js'",
+  },
   resolve: {
     alias: {
       '@': '/src',
     },
   },
+  plugins: [
+    ViteImageOptimizer({
+      exclude: /sprite.svg/i,
+      jpg: {
+        quality: 80,
+      },
+      png: {
+        quality: 80,
+      },
+      webp: {
+        quality: 80,
+      },
+      avif: {
+        quality: 60,
+      },
+    }),
+  ],
   build: {
     rollupOptions: {
       output: {
