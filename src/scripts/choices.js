@@ -25,9 +25,24 @@ const adjustElementPosition = (element, count = 0) => {
 export const initChoices = () => {
   const choices = document.querySelectorAll('.choices');
 
+  const closeAllChoices = ({ target }) => {
+    const clickInside = target.closest('.choices');
+    if (!clickInside) {
+      choices.forEach(choice => {
+        choice.querySelector('.choices__btn').classList.remove('filters__select_active');
+        choice.querySelector('.choices__box').classList.remove('choices__box_open');
+      });
+      document.removeEventListener('click', closeAllChoices);
+    }
+  };
+
   choices.forEach(choice => {
     const btn = choice.querySelector('.choices__btn');
     const box = choice.querySelector('.choices__box');
+
+    const debouncedAdjustElementPosition = debounce(() => {
+      adjustElementPosition(box);
+    }, 100);
 
     btn.addEventListener('click', () => {
       if (!btn.classList.contains('filters__select_active')) {
@@ -39,14 +54,15 @@ export const initChoices = () => {
       btn.classList.toggle('filters__select_active');
       box.classList.toggle('choices__box_open');
 
+      if (box.classList.contains('choices__box_open')) {
+        document.addEventListener('click', closeAllChoices);
+      } else {
+        document.removeEventListener('click', closeAllChoices);
+      }
+
       adjustElementPosition(box);
 
-      window.addEventListener(
-        'resize',
-        debounce(() => {
-          adjustElementPosition(box);
-        }, 100),
-      );
+      window.addEventListener('resize', debouncedAdjustElementPosition);
     });
   });
 };

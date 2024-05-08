@@ -2,7 +2,7 @@
 @use '../media' as *;
 
 .filters {
-  &__container {
+  &__form {
     display: flex;
     align-items: center;
     justify-content: space-between;
