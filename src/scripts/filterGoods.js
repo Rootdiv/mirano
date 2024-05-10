@@ -7,6 +7,7 @@ const filterType = (type, prices) => {
 
 export const filterGoods = () => {
   const filtersForm = document.querySelector('.filters__form');
+  const goodsTitle = document.querySelector('.goods__title');
   filtersForm.reset();
 
   const filtersPrice = {};
@@ -19,6 +20,7 @@ export const filterGoods = () => {
 
   filtersForm.addEventListener('input', ({ target }) => {
     if (target.name === 'type') {
+      goodsTitle.textContent = target.labels[0].textContent;
       filtersForm.minPrice.value = '';
       filtersForm.maxPrice.value = '';
       filterType(filtersForm.type);
