@@ -40,10 +40,6 @@ export const initChoices = () => {
     const btn = choice.querySelector('.choices__btn');
     const box = choice.querySelector('.choices__box');
 
-    const debouncedAdjustElementPosition = debounce(() => {
-      adjustElementPosition(box);
-    }, 100);
-
     btn.addEventListener('click', () => {
       if (!btn.classList.contains('filters__select_active')) {
         choices.forEach(otherChoice => {
@@ -61,8 +57,13 @@ export const initChoices = () => {
       }
 
       adjustElementPosition(box);
-
-      window.addEventListener('resize', debouncedAdjustElementPosition);
     });
+
+    window.addEventListener(
+      'resize',
+      debounce(() => {
+        adjustElementPosition(box);
+      }, 100),
+    );
   });
 };

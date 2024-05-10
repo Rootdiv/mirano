@@ -6,10 +6,8 @@ export const renderGoods = async () => {
   const updateList = () => {
     const goods = store.getGoods();
     goodsList.textContent = '';
-    goods.forEach(product => {
-      const productCard = ProductCard(product);
-      goodsList.append(productCard);
-    });
+    const productCards = goods.map(ProductCard);
+    goodsList.append(...productCards);
   };
 
   store.subscribe(updateList);

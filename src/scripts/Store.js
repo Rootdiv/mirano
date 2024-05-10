@@ -1,8 +1,6 @@
 class Store {
   constructor() {
     this.observers = [];
-    this.goods = [];
-    this.categories = new Set();
   }
 
   subscribe(observerFunction) {
@@ -10,7 +8,17 @@ class Store {
   }
 
   notifyObservers() {
-    this.observers.forEach(observer => observer());
+    this.observers.forEach(observer => {
+      observer();
+    });
+  }
+}
+
+class GoodsStore extends Store {
+  constructor() {
+    super();
+    this.goods = [];
+    this.categories = new Set();
   }
 
   getGoods() {
@@ -40,4 +48,4 @@ class Store {
   }
 }
 
-export const store = new Store();
+export const store = new GoodsStore();
