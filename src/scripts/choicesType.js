@@ -1,19 +1,18 @@
-import { FilterType } from '@/scripts/FilterType';
+import { ListType } from '@/scripts/ListType';
 import { store } from '@/scripts/Store';
 
 export const initChoicesType = () => {
   const typeChoices = document.querySelector('.filters__choices_type');
+  const choicesBox = document.querySelector('.filters__choices-box_type');
 
   const updateTypeChoicesVisibility = () => {
     const categories = store.getCategories();
-    const filtersType = document.querySelector('.filters__type-list');
 
     if (categories.size) {
-      filtersType.textContent = '';
+      choicesBox.textContent = '';
       typeChoices.removeAttribute('style');
-      categories.forEach(category => {
-        filtersType.append(FilterType(category));
-      });
+      const listType = ListType([...categories]);
+      choicesBox.append(listType);
     } else {
       typeChoices.style.display = 'none';
     }
