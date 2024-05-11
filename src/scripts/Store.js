@@ -35,6 +35,11 @@ class GoodsStore extends Store {
     return this.categories;
   }
 
+  setCategoryGoods(newGoods) {
+    this.goods = newGoods;
+    this.notifyObservers();
+  }
+
   updateCategories(goods) {
     this.categories.clear();
     goods.forEach(product => {

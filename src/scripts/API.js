@@ -28,6 +28,11 @@ export const fetchGoods = async (params = {}) => {
 
     const goods = await response.json();
 
+    if (params.category) {
+      store.setCategoryGoods(goods);
+      return;
+    }
+
     store.setGoods(goods);
   } catch (error) {
     console.error(`Ошибка при получении данных: ${error}`);
