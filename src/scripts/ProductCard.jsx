@@ -8,9 +8,16 @@ export const ProductCard = ({ id, photoUrl, name, price }) => (
         <h3 class="card__title">{name}</h3>
         <div class="card__footer">
           <p class="card__date-delivery">сегодня&nbsp;в&nbsp;14:00</p>
-          <button type="button" class="card__button">
-            <span class="card__price">{price}&nbsp;&#8381;</span>
-            <span class="card__button-text">в&nbsp;корзину</span>
+          <button
+            type="button"
+            class="card__button"
+            onMouseEnter={({ target }) => {
+              target.innerHTML = 'в&nbsp;корзину';
+            }}
+            onMouseLeave={({ target }) => {
+              target.innerHTML = `${price}&nbsp;&#8381`;
+            }}>
+            {price}&nbsp;&#8381;
           </button>
         </div>
       </div>
