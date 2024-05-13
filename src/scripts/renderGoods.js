@@ -1,10 +1,10 @@
 import { ProductCard } from '@/scripts/ProductCard';
-import { store } from '@/scripts/Store';
+import { goodsStore } from '@/scripts/Store';
 
 export const renderGoods = async () => {
   const goodsList = document.querySelector('.goods__list');
   const updateList = () => {
-    const goods = store.getGoods();
+    const goods = goodsStore.getGoods();
     goodsList.textContent = '';
 
     if (goods.length === 0) {
@@ -19,6 +19,6 @@ export const renderGoods = async () => {
     goodsList.append(...productCards);
   };
 
-  store.subscribe(updateList);
+  goodsStore.subscribe(updateList);
   updateList();
 };

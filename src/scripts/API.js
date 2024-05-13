@@ -1,4 +1,4 @@
-import { store } from '@/scripts/Store';
+import { goodsStore } from '@/scripts/Store';
 
 export const API_URL = import.meta.env.DEV
   ? 'http://localhost:3000'
@@ -29,11 +29,11 @@ export const fetchGoods = async (params = {}) => {
     const goods = await response.json();
 
     if (params.category) {
-      store.setCategoryGoods(goods);
+      goodsStore.setCategoryGoods(goods);
       return;
     }
 
-    store.setGoods(goods);
+    goodsStore.setGoods(goods);
   } catch (error) {
     console.error(`Ошибка при получении данных: ${error}`);
     return [];
