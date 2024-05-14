@@ -1,8 +1,6 @@
 import { goodsStore } from '@/scripts/Store';
 
-export const API_URL = import.meta.env.DEV
-  ? 'http://localhost:3000'
-  : 'https://api.rootdiv.ru/mirano';
+export const API_URL = import.meta.env.DEV ? 'http://localhost:3000' : 'https://mirano.rootdiv.ru';
 
 const formatQueryString = params => {
   if (Object.keys(params).length === 0) {
