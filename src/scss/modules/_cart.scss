@@ -183,6 +183,11 @@
     @include mobile {
       font-size: 14px;
     }
+
+    &:disabled {
+      background-color: $light-orange;
+      opacity: 40%;
+    }
   }
 
   &__no-product {
