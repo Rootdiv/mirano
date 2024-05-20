@@ -5,7 +5,7 @@ import { initCart } from '@/scripts/cart';
 import { renderGoods } from '@/scripts/renderGoods';
 import { initChoicesType } from '@/scripts/choicesType';
 import { filterGoods } from '@/scripts/filterGoods';
-import { initSearchProducts } from '@/scripts/searchProdcts';
+import { initSearchProducts } from '@/scripts/searchProducts';
 import { initOrder } from '@/scripts/orderController';
 
 const init = () => {

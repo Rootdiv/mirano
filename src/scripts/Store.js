@@ -72,7 +72,7 @@ class CartStore extends Store {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
     } catch (error) {
-      console.error(`Ошибка при получении данных: ${error}`);
+      console.error(`Ошибка при отправке данных: ${error}`);
     }
   }
 
@@ -115,7 +115,7 @@ class CartStore extends Store {
       this.cart = await response.json();
       this.notifyObservers();
     } catch (error) {
-      console.error(`Ошибка при получении данных: ${error}`);
+      console.error(`Ошибка при отправке данных: ${error}`);
     }
   }
 

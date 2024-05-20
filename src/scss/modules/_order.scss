@@ -10,6 +10,7 @@
   padding: 9px;
 
   &__wrapper {
+    position: relative;
     margin: auto;
     border-radius: 32px;
     padding: 60px 32px;
@@ -223,7 +224,8 @@
   &__close {
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 20px;
     font-size: 36px;
+    color: $orange;
   }
 }

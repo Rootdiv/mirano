@@ -91,10 +91,10 @@ export const Order = totalPriceValue => {
             Заказать
           </button>
         </div>
+        <button type="button" class="order__close">
+          &times;
+        </button>
       </div>
-      <button type="button" class="order__close">
-        &times;
-      </button>
     </div>
   );
 };
