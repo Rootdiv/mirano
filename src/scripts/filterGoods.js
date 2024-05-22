@@ -1,4 +1,4 @@
-import { fetchGoods } from '@/scripts/API';
+import { goodsStore } from '@/scripts/Store';
 import { debounce } from '@/scripts/debounce';
 import { callBackWithPreload } from '@/scripts/preload';
 
@@ -26,7 +26,7 @@ export const filterGoods = () => {
       params.maxPrice = maxPrice;
     }
 
-    callBackWithPreload(goodsSection, fetchGoods, params);
+    callBackWithPreload(goodsSection, goodsStore.fetchGoods(), params);
   };
 
   applyFilters();
@@ -52,7 +52,7 @@ export const filterGoods = () => {
 
   filtersForm.addEventListener('click', ({ target }) => {
     if (target.name === 'category') {
-      callBackWithPreload(goodsSection, fetchGoods, {
+      callBackWithPreload(goodsSection, goodsStore.fetchGoods(), {
         type: filtersForm.type.value,
         category: target.textContent,
       });

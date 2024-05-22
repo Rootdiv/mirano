@@ -1,4 +1,4 @@
-import { API_URL } from '@/scripts/API';
+import { API_URL, fetchGoods } from '@/scripts/API';
 
 class Store {
   constructor() {
@@ -21,6 +21,36 @@ class GoodsStore extends Store {
     super();
     this.goods = [];
     this.categories = new Set();
+    this._loading = false;
+    this.error = null;
+  }
+
+  fetchGoods() {
+    const _self = this;
+    return async params => {
+      try {
+        _self.error = null;
+        _self.loading = true;
+        if (!params.category) {
+          this.categories.clear();
+        }
+        _self.setGoods(await fetchGoods(params));
+        _self.loading = false;
+      } catch (error) {
+        _self.error = error;
+        _self.setGoods([]);
+        _self.loading = false;
+      }
+    };
+  }
+
+  get loading() {
+    return this._loading;
+  }
+
+  set loading(bool) {
+    this._loading = bool;
+    this.notifyObservers();
   }
 
   getGoods() {
@@ -43,7 +73,6 @@ class GoodsStore extends Store {
   }
 
   updateCategories(goods) {
-    this.categories.clear();
     goods.forEach(product => {
       if (product.categories) {
         product.categories.forEach(category => {

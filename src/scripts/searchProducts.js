@@ -1,4 +1,4 @@
-import { fetchGoods } from '@/scripts/API';
+import { goodsStore } from '@/scripts/Store';
 import { callBackWithPreload } from '@/scripts/preload';
 
 export const initSearchProducts = () => {
@@ -15,7 +15,7 @@ export const initSearchProducts = () => {
     if (searchQuery) {
       goodsTitle.textContent = 'Результат поиска';
       goodsTitle.scrollIntoView({ block: 'center', behavior: 'smooth' });
-      callBackWithPreload(goodsSection, fetchGoods, { search: searchQuery });
+      callBackWithPreload(goodsSection, goodsStore.fetchGoods(), { search: searchQuery });
       headerForm.search.value = '';
     }
   });

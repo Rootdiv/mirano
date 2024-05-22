@@ -1,5 +1,3 @@
-import { goodsStore } from '@/scripts/Store';
-
 export const API_URL = import.meta.env.DEV ? 'http://localhost:3000' : 'https://mirano.rootdiv.ru';
 
 const formatQueryString = params => {
@@ -24,14 +22,7 @@ export const fetchGoods = async (params = {}) => {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
-    const goods = await response.json();
-
-    if (params.category) {
-      goodsStore.setCategoryGoods(goods);
-      return;
-    }
-
-    goodsStore.setGoods(goods);
+    return response.json();
   } catch (error) {
     console.error(`Ошибка при получении данных: ${error}`);
     return [];
