@@ -1,5 +1,6 @@
 import { API_URL } from '@/scripts/API';
 import { cartStore } from '@/scripts/Store';
+import { debounce } from '@/scripts/debounce';
 
 export const CartElem = ({ id, photoUrl, name, quantity, price }) => (
   <li class="cart__item" key={id}>
@@ -14,7 +15,19 @@ export const CartElem = ({ id, photoUrl, name, quantity, price }) => (
         }}>
         -
       </button>
-      <input type="number" class="cart__counter-input" min="0" max="99" value={quantity} />
+      <input
+        type="number"
+        class="cart__counter-input"
+        min="0"
+        max="99"
+        value={quantity}
+        onInput={debounce(({ target }) => {
+          cartStore.postCart({
+            id,
+            quantity: parseInt(target.value) > 0 ? parseInt(target.value) : quantity,
+          });
+        }, 500)}
+      />
       <button
         type="button"
         class="cart__counter-btn"
