@@ -52,15 +52,39 @@
     }
 
     &_flowers {
-      background-image: url('/img/flowers.png');
+      background-image: url('/img/flowers@1x.png');
+      background-image: image-set(
+        url('/img/flowers@1x.avif') type('image/avif') 1x,
+        url('/img/flowers@2x.avif') type('image/avif') 2x,
+        url('/img/flowers@1x.webp') type('image/webp') 1x,
+        url('/img/flowers@2x.webp') type('image/webp') 2x,
+        url('/img/flowers@1x.png') type('image/png') 1x,
+        url('/img/flowers@2x.png') type('image/png') 2x
+      );
     }
 
     &_toys {
-      background-image: url('/img/bear-toy.png');
+      background-image: url('/img/bear-toy@1x.png');
+      background-image: image-set(
+        url('/img/bear-toy@1x.avif') type('image/avif') 1x,
+        url('/img/bear-toy@2x.avif') type('image/avif') 2x,
+        url('/img/bear-toy@1x.webp') type('image/webp') 1x,
+        url('/img/bear-toy@2x.webp') type('image/webp') 2x,
+        url('/img/bear-toy@1x.png') type('image/png') 1x,
+        url('/img/bear-toy@2x.png') type('image/png') 2x
+      );
     }
 
     &_postcards {
-      background-image: url('/img/postcard.png');
+      background-image: url('/img/postcard@1x.png');
+      background-image: image-set(
+        url('/img/postcard@1x.avif') type('image/avif') 1x,
+        url('/img/postcard@2x.avif') type('image/avif') 2x,
+        url('/img/postcard@1x.webp') type('image/webp') 1x,
+        url('/img/postcard@2x.webp') type('image/webp') 2x,
+        url('/img/postcard@1x.png') type('image/png') 1x,
+        url('/img/postcard@2x.png') type('image/png') 2x
+      );
     }
 
     &:hover {

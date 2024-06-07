@@ -63,6 +63,7 @@
     object-fit: cover;
     width: calc(284 / 1300 * 100%);
     aspect-ratio: 284 / 352;
+    overflow: hidden;
 
     &_left {
       border-radius: 400px 400px 400px 0;

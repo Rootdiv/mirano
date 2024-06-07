@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
+import autoprefixer from 'autoprefixer';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,6 +12,12 @@ export default defineConfig({
     alias: {
       '@': '/src',
     },
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {},
+    },
+    postcss: [autoprefixer({})],
   },
   plugins: [
     ViteImageOptimizer({
