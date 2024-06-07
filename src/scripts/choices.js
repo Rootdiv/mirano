@@ -1,3 +1,4 @@
+import { goodsStore } from '@/scripts/Store';
 import { debounce } from '@/scripts/debounce';
 
 const adjustElementPosition = (element, count = 0) => {
@@ -65,5 +66,7 @@ export const initChoices = () => {
         adjustElementPosition(box);
       }, 100),
     );
+
+    goodsStore.subscribe(() => adjustElementPosition(box));
   });
 };
