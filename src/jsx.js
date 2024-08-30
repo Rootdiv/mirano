@@ -1,6 +1,7 @@
 export const jsx = (tag, attributes, ...children) => {
   attributes = attributes || {};
 
+  // Поддержка компонентов, когда jsx передаётся в jsx
   if (typeof tag === 'function') {
     return tag(attributes, ...children);
   }
